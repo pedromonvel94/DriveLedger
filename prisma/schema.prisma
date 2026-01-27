@@ -59,6 +59,8 @@ model vehicles {
   ownership_type     ownership_type_enum
   weekly_rent_amount Int?
   created_at         DateTime            @default(now()) @db.Timestamptz(6)
+  alias              String?             @db.VarChar(100)
+  plate              String?             @db.VarChar(10)
   expenses           expenses[]
   incomes            incomes[]
   users              users               @relation(fields: [user_id], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "fk_vehicles_user")
